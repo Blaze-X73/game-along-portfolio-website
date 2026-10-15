@@ -119,14 +119,23 @@ nav.expanded {
   flex-direction: column;
   list-style: none;
   gap: 2rem;
+  width: 100%;
   transition: 0.3s;
 }
 
 .nav-links li {
   cursor: pointer;
   position: relative;
-  width: max-content;
+  width: 100%;
   height: max-content;
+}
+
+.nav-links.expanded li {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  padding: 0.5rem 0;
 }
 
 .nav-links li::after {
@@ -141,10 +150,40 @@ nav.expanded {
   transition: 0.3s;
 }
 
+.nav-links.expanded li::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  height: 0.2rem;
+  width: 0;
+  border-radius: 0.1rem;
+  background: var(--accent-color);
+  transition: 0.3s;
+}
+
+.nav-links.expanded li::before {
+  content: "";
+  position: absolute;
+  top: -0.2rem;
+  right: 0;
+  height: 0.2rem;
+  width: 0;
+  border-radius: 0.1rem;
+  background: var(--accent-color);
+  transition: 0.3s;
+}
+
 .nav-links li:hover::after {
   background: var(--accent-color);
   width: 100%;
   left: 0;
+}
+
+.nav-links.expanded li:hover::before {
+  background: var(--accent-color);
+  width: 100%;
+  right: 0;
 }
 
 .nav-actions {
