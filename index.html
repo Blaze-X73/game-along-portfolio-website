@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GameAlong | Home</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav-bar">
         <section class="logo-and-menu">
-        <a href="#" class="nav-logo">
-          <span class="white">Game</span><span class="red">Along</span>
-        </a>
-        <div class="menu-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+          <a href="#" class="nav-logo">
+            <span class="white">Game</span><span class="red">Along</span>
+          </a>
+          <div class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </section>
         <ul class="nav-links">
           <li>Home</li>
@@ -33,7 +46,42 @@
       </nav>
     </header>
 
-    
+    <main>
+      <section class="welcome">
+        <span class="image"></span>
+        <h1>Need people to game with?</h1>
+      </section>
+      <section class="features">
+        <ol class="features-list">
+          <li class="square-item">
+            <span class="material-symbols-outlined" id="icon"> square </span>
+            <span class="feature-text"
+              >Find players to join you in your gaming!</span
+            >
+          </li>
+          <li class="triangle-item">
+            <span class="material-symbols-outlined" id="icon">
+              change_history
+            </span>
+            <span class="feature-text"
+              >Choose players based on your play style and rate them!</span
+            >
+          </li>
+          <li class="circle-item">
+            <span class="material-symbols-outlined" id="icon"> circle </span>
+            <span class="feature-text"
+              >Join the player base and be selected!</span
+            >
+          </li>
+          <li class="x-item">
+            <span class="material-symbols-outlined" id="icon"> close </span>
+            <span class="feature-text"
+              >Rank up as you get better ratings from players!</span
+            >
+          </li>
+        </ol>
+      </section>
+    </main>
 
     <script src="./js/script.js"></script>
   </body>
