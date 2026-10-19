@@ -5,18 +5,31 @@
 }
 
 :root {
+  /*Colors*/
   --bg-color: #0a0f13;
-  --bg-color2: #242f38;
+  --bg-color2: #110622;
   --header-color: #f8fbfb;
   --text-color: #cccccc;
   --accent-color: #e31717;
   --primary-color: #d6ba1b;
   --secondary-color: #951ab7;
-  --placeholder-gradient: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+
+  /*Gradients*/
+  --placeholder-gradient: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--accent-color),
+    var(--secondary-color)
+  );
+
+  /*Game-Style List Icons*/
   --square-color: #ff69f8;
   --triangle-color: #40e0d0;
   --circle-color: #ff6666;
   --x-color: #7cb2e8;
+
+  /*Text-Sizes*/
+  --base-txt-size: clamp(1.01rem, 1vw + 0.5rem, 1.8rem);
 }
 
 body {
@@ -27,6 +40,18 @@ body {
   font-family: "Space Grotesk", sans-serif;
   transition: 0.3s;
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 2vw + 1.3rem, 2.2rem);
+}
+
+header.expanded {
+  position: relative;
+  top: 0;
+  right: 0;
+  background: var(--bg-color2);
 }
 
 nav {
@@ -39,7 +64,7 @@ nav {
   background: var(--bg-color2);
   width: 100%;
   height: fit-content;
-  font-size: 1.01rem;
+  font-size: var(--base-txt-size);
 }
 
 nav.expanded {
@@ -50,7 +75,7 @@ nav.expanded {
   gap: 2rem;
   padding: 1rem 1rem;
   background: var(--bg-color2);
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 15rem;
@@ -58,11 +83,11 @@ nav.expanded {
   transition: 0.3s;
 }
 
-.logo-and-menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.logo-and-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .nav-logo {
@@ -195,6 +220,11 @@ nav.expanded {
   right: 0;
 }
 
+.nav-links li a {
+  text-decoration: none;
+  color: var(--header-color);
+}
+
 .nav-actions {
   display: none;
   justify-content: space-between;
@@ -203,7 +233,7 @@ nav.expanded {
 }
 
 .nav-actions.expanded {
-    display: flex;
+  display: flex;
   justify-content: space-between;
   width: 100%;
   transition: 0.3s;
@@ -252,34 +282,37 @@ main {
   flex-direction: column;
   padding: 1.5rem;
   gap: 1rem;
+  font-size: var(--base-txt-size);
 }
 
-.welcome{
+.welcome {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.welcome h1{
-  font-family: 'Poppins';
-  font-size: 1.9rem;
+.welcome h1 {
+  font-family: "Poppins";
 }
 
-.image{
-  background: var(--placeholder-gradient);
+.image {
+  background: url(../images/lonely-gamer-mobile.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
-  aspect-ratio:  15 / 16;
+  aspect-ratio: 15 / 16;
   border-radius: 0.75rem;
 }
 
-.features-list{
+.features-list {
   display: flex;
   flex-direction: column;
   list-style: none;
   gap: 2rem;
 }
 
-.features-list li{
+.features-list li {
   display: flex;
   align-items: center;
   background: var(--bg-color2);
@@ -288,6 +321,108 @@ main {
   color: var(--header-color);
   border-radius: 0.75rem;
   padding: 2rem 1rem 2rem 0rem;
+  cursor: default;
+  position: relative;
+  transition: 0.3s;
+}
+
+.features-list li:hover {
+  border: 0.1rem solid transparent;
+  box-shadow: 0 0.5rem 0 transparent;
+  padding: 2.1rem 1.1rem 2.1rem 0.1rem;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes glowFluctuate {
+  0% {
+    opacity: 0.5;
+    --angle: 0deg;
+  }
+
+  50% {
+    opacity: 1;
+    --angle: 180deg;
+  }
+
+  100% {
+    opacity: 0.5;
+    --angle: 360deg;
+  }
+}
+
+.features-list li::after,
+.features-list li::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -0.1rem;
+  left: -0.1rem;
+  background: transparent;
+  z-index: -1;
+  padding: 0.1rem 0.1rem 0.6rem 0.1rem;
+  border-radius: inherit;
+  transition: 0.3s;
+  animation: spin 6s linear infinite;
+}
+
+.features-list li::after {
+  background: var(--header-color);
+  padding: 0.2rem 0.2rem 0.7rem 0.2rem;
+  filter: blur(0.3rem);
+  top: -0.2rem;
+  left: -0.2rem;
+  animation: glowFluctuate 5s linear infinite;
+}
+
+.features-list li:hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -0.1rem;
+  left: -0.1rem;
+  background: conic-gradient(
+    from var(--angle),
+    var(--square-color),
+    var(--triangle-color),
+    var(--circle-color),
+    var(--x-color),
+    var(--square-color)
+  );
+  padding: 0.1rem 0.1rem 0.6rem 0.1rem;
+  border-radius: inherit;
+  transition: 0.3s;
+  animation: spin 6s linear infinite;
+  filter: none;
+}
+
+.features-list li:hover::before {
+  filter: blur(0.9rem);
+  animation: glowFluctuate 6s linear infinite;
+  background: conic-gradient(
+    from var(--angle),
+    var(--square-color),
+    var(--triangle-color),
+    var(--circle-color),
+    var(--x-color),
+    var(--square-color)
+  );
 }
 
 .square-item span:first-child {
@@ -310,7 +445,7 @@ main {
   scale: 1.4;
 }
 
-.features-list li #icon{
+.features-list li #icon {
   padding: 0 2rem;
 }
 
@@ -325,7 +460,7 @@ main {
     padding: 1rem;
   }
 
-  .logo-and-menu{
+  .logo-and-menu {
     width: fit-content;
   }
 
