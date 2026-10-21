@@ -38,7 +38,6 @@ body {
   background: var(--bg-color);
   color: var(--header-color);
   font-family: "Space Grotesk", sans-serif;
-  transition: 0.3s;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -55,6 +54,10 @@ h3{
   font-size: calc(clamp(1.8rem, 2vw + 1.3rem, 2.2rem) / 1.4);
 }
 
+body.expanded{
+  padding-top: calc(( 2 * clamp(1rem, 0.8rem + 1vw, 1.2rem)) + var(--base-txt-size));
+}
+
 header.expanded {
   position: relative;
   top: 0;
@@ -66,29 +69,30 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
   padding: clamp(1rem, 0.8rem + 1vw, 1.2rem);
   background: var(--bg-color2);
   width: 100%;
   height: fit-content;
   font-size: var(--base-txt-size);
+  margin-left: auto;
+  transition: 0.3s width;
 }
 
 nav.expanded {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  gap: 2rem;
-  padding: clamp(1rem, 0.8rem + 2vw, 2rem);
+  gap: clamp(1rem, 0.8rem + 2vw, 2rem);
+  padding: 0;
   background: var(--bg-color2);
   position: fixed;
   top: 0;
   right: 0;
   width: clamp(15rem, 7rem + 25vw, 20rem);
   height: 100%;
-  transition: 0.3s;
+  transition: 0.3s width;
   z-index: 1000;
+  position: fixed;
 }
 
 .logo-and-menu {
@@ -96,6 +100,27 @@ nav.expanded {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  top: 0;
+}
+
+.nav-links-and-actions{
+  display: flex;
+  align-items: center;
+}
+
+nav.expanded .nav-links-and-actions{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6.5rem;
+  padding: clamp(1rem, 0.8rem + 2vw, 2rem);
+  font-size: 1.75rem;
+}
+
+nav.expanded .logo-and-menu {
+  padding: clamp(1rem, 0.8rem + 1vw, 1.2rem);
 }
 
 .nav-logo {
@@ -106,12 +131,12 @@ nav.expanded {
 
 .nav-logo .white {
   color: var(--header-color);
-  font-size: 1.3rem;
+  font-size: calc(var(--base-txt-size) * 1.8 / 1.01);
 }
 
 .nav-logo .red {
   color: var(--accent-color);
-  font-size: 1.4rem;
+  font-size: calc(var(--base-txt-size) * 1.8 / 1.01);
   font-weight: 600;
 }
 
@@ -160,7 +185,7 @@ nav.expanded {
   display: flex;
   flex-direction: column;
   list-style: none;
-  gap: 2rem;
+  gap: 4.5rem;
   width: 100%;
   transition: 0.3s;
 }
@@ -242,9 +267,20 @@ nav.expanded {
 
 .nav-actions.expanded {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
   transition: 0.3s;
+  gap: 4.5rem;
+}
+
+.nav-actions.expanded a {
+  padding: 0.6rem 1.8rem;
+  border-radius: 0.6rem;
+}
+
+.nav-actions.expanded a:last-child{
+  margin-left: auto;
 }
 
 .nav-actions a {
@@ -495,6 +531,11 @@ main {
 
   .menu-btn {
     display: none;
+  }
+
+  .nav-links-and-actions{
+    display: flex;
+    width: 100%;
   }
 
   .nav-links {

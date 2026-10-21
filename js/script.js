@@ -3,6 +3,7 @@ const menuBtn = document.querySelector(".menu-btn");
 const navLinks = document.querySelector(".nav-links");
 const navActions = document.querySelector(".nav-actions");
 const header = document.querySelector("header");
+const body = document.querySelector("body");
 const mediaQuery = window.matchMedia("(min-width: 760px)");
 
 menuBtn.addEventListener("click", () => {
@@ -11,6 +12,7 @@ menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("expanded");
   navActions.classList.toggle("expanded");
   header.classList.toggle("expanded");
+  body.classList.toggle("expanded");
 });
 
 mediaQuery.addEventListener("change", function (event) {
@@ -20,5 +22,6 @@ mediaQuery.addEventListener("change", function (event) {
     navLinks.classList.remove("expanded");
     navActions.classList.remove("expanded");
     header.classList.remove("expanded");
+    body.classList.remove("expanded");
   }
 });
