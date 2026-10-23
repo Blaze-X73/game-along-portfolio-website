@@ -473,10 +473,14 @@ main {
   align-items: center;
 }
 
-.image img {
+.mobile-img {
   aspect-ratio: 15 / 16;
   width: 100%;
   border-radius: 0.75rem;
+}
+
+.desktop-img {
+  display: none;
 }
 
 .features-list {
@@ -499,6 +503,7 @@ main {
   position: relative;
   transition: 0.3s;
   top: -0.6rem;
+  cursor: pointer;
 }
 
 .features-list li:hover {
@@ -738,5 +743,20 @@ main {
     background: transparent;
     top: 50%;
     left: 50%;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-img {
+    display: none;
+  }
+
+  .desktop-img {
+    display: flex;
+    width: 100%;
+    border-radius: 0.75rem;
   }
 }
