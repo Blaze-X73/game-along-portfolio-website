@@ -27,6 +27,7 @@
   </head>
   <body>
     <header>
+      <!--Base site start-->
       <nav class="nav-bar">
         <div class="logo-and-menu">
           <a href="#" class="nav-logo">
@@ -54,17 +55,16 @@
         </div>
       </nav>
     </header>
-
-    <main>
+    <main class="">
       <section class="welcome">
         <span class="image">
           <img
-            src="./images/lonely-gamer-mobile.jpg"
+            src="./images/lonely-gamer-mobile.webp"
             alt=""
             class="mobile-img"
           />
           <img
-            src="./images/lonely-gamer-desktop.jpg"
+            src="./images/lonely-gamer-desktop.webp"
             alt=""
             class="desktop-img"
           />
@@ -73,37 +73,252 @@
       </section>
       <section class="features">
         <ol class="features-list">
-          <li class="square-item">
-            <span class="material-symbols-outlined" id="icon"> square </span>
-            <span class="feature-text"
-              >Find players to join you in your gaming!</span
-            >
+          <li class="square-item" id="square-card">
+            <a href="#square-section">
+              <span class="material-symbols-outlined" id="icon"> square </span>
+              <span class="feature-text"
+                >Find players based on preferred play style and rate them!
+              </span>
+            </a>
           </li>
-          <li class="triangle-item">
-            <span class="material-symbols-outlined" id="icon">
-              change_history
-            </span>
-            <span class="feature-text"
-              >Choose players based on your play style and rate them!</span
-            >
+          <li class="triangle-item" id="triangle-card">
+            <a href="">
+              <span class="material-symbols-outlined" id="icon">
+                change_history
+              </span>
+              <span class="feature-text"
+                >Learn the basics as well as tricks from players in our
+                community!
+              </span>
+            </a>
           </li>
-          <li class="circle-item">
-            <span class="material-symbols-outlined" id="icon"> circle </span>
-            <span class="feature-text"
-              >Join the player base and be selected!</span
-            >
+          <li class="circle-item" id="circle-card">
+            <a href="">
+              <span class="material-symbols-outlined" id="icon"> circle </span>
+              <span class="feature-text"
+                >Invite players on-site to play LAN multiplayer games!
+              </span>
+            </a>
           </li>
-          <li class="x-item">
-            <span class="material-symbols-outlined" id="icon"> close </span>
-            <span class="feature-text"
-              >Rank up as you get better ratings from players!</span
-            >
+          <li class="x-item" id="cross-card">
+            <a href="">
+              <span class="material-symbols-outlined" id="icon"> close </span>
+              <span class="feature-text"
+                >Get guides on how to set games up as well as their multiplayer
+                features!
+              </span>
+            </a>
           </li>
         </ol>
       </section>
+
+      <footer></footer>
     </main>
 
-    <footer></footer>
+    <!--Base site end-->
+
+    <section class="player-search" id="square-section">
+      <section class="top-bar">
+        <div class="input-container">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search for players"
+          />
+        </div>
+
+        <span class="material-symbols-outlined" id="close-square">
+          square
+        </span>
+      </section>
+
+      <section class="search-loading">
+        <span>Searching</span>
+        <div class="search-circle"></div>
+      </section>
+
+      <section class="player-cards">
+        <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div>
+         <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div>
+         <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div> <div class="player-card1">
+          <img src="./images/player1-img.webp" alt="">
+            <section class="player-details">
+              
+                <span class="title">Name: </span>
+                <span class="value">Blaze-X73</span>
+              
+                <span class="title">Skill-lvl: </span>
+                <span class="value">Elite</span>
+              
+                <span class="title">Play-Style: </span>
+                <span class="value">Strategist</span>
+              
+                <span class="title">Games: </span><span class="value"></span>
+              
+            </section>
+        </div>
+      </section>
+    </section>
 
     <script src="./js/script.js"></script>
   </body>
