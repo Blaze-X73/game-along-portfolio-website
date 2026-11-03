@@ -17,14 +17,13 @@ const circleCard = document.querySelector("#circle-card");
 const crossCard = document.querySelector("#cross-card");
 
 menuBtn.addEventListener("click", () => {
+  if (!navBar.classList.contains("expanded")) {
+    const navHeight = navBar.getBoundingClientRect().height;
 
-if (!navBar.classList.contains("expanded")) {
-  const navHeight = navBar.getBoundingClientRect().height;
-
-  main.style.marginTop = `${navHeight}px`;
-} else {
-  main.style.marginTop = '0px';
-}
+    main.style.marginTop = `${navHeight}px`;
+  } else {
+    main.style.marginTop = "0px";
+  }
 
   menuBtn.classList.toggle("active");
   navBar.classList.toggle("expanded");
@@ -32,6 +31,7 @@ if (!navBar.classList.contains("expanded")) {
   navActions.classList.toggle("expanded");
   header.classList.toggle("expanded");
   main.classList.toggle("expanded");
+  body.classList.toggle("expanded");
 });
 
 mediaQuery.addEventListener("change", function (event) {
@@ -42,17 +42,11 @@ mediaQuery.addEventListener("change", function (event) {
     navActions.classList.remove("expanded");
     header.classList.remove("expanded");
     main.classList.remove("expanded");
+    body.classList.remove("expanded");
   }
 });
 
-squareCard.addEventListener("click", () => {
-  playerSearchSection.classList.add("open");
-  navBar.classList.add("hidden");
-  main.classList.add("hidden");
-});
 
-closeSquare.addEventListener("click", () => {
-  playerSearchSection.classList.remove("open");
-  navBar.classList.remove("hidden");
-  main.classList.remove("hidden");
-})
+const welcome = document.querySelector("#welcome-section");
+welcome instanceof HTMLElement(welcome);
+welcome.style.height += `style="calc(${navHeight}px + clamp(1.3rem, 1rem + 2vw, 2.6rem))"`;`${navHeight}`
