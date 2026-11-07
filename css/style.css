@@ -247,8 +247,8 @@ nav.expanded {
   padding: 0;
   top: var(--body-padding);
   right: var(--body-padding);
-  width: calc(100vw - (2 * clamp(1.3rem, 1rem + 2vw, 2.6rem)));
-  height: calc(100vh - (2 * clamp(1.3rem, 1rem + 2vw, 2.6rem)));
+  width: calc(100vw - (2 * var(--body-padding)));
+  height: calc(100vh - (2 * var(--body-padding)));
   transition: 0.3s height;
   z-index: 1000;
   position: fixed;
@@ -260,6 +260,7 @@ nav.expanded {
 
 .logo-and-menu {
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -275,8 +276,8 @@ nav.expanded {
 
 nav.expanded .nav-links-and-actions {
   width: 100%;
-  height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   gap: clamp(1rem, 1.8rem + 2vw, 2rem);
@@ -288,8 +289,11 @@ nav.expanded .nav-links-and-actions {
 nav.expanded .logo-and-menu {
   height: fit-content;
   padding: clamp(1rem, 0.8rem + 2vw, 1.2rem);
+  min-height: calc(70 / 16)rem;
   margin: none;
   position: sticky;
+  top: 0;
+  left: 0;
   z-index: 1001;
   backdrop-filter: blur(20px);
 }
@@ -699,7 +703,7 @@ main.expanded {
 .features{
   position: sticky;
   position: -webkit-sticky;
-  top: 25vh;
+  top: -20vh;
   margin-bottom: 35vh;
   padding: var(--body-padding);
 }
@@ -1009,7 +1013,7 @@ footer {
   .nav-logo {
     text-decoration: none;
     color: var(--header-color);
-    width: 15rem;
+    width: fit-content;
   }
 
   .nav-logo span {
@@ -1096,19 +1100,14 @@ footer {
     transition: 0.3s;
   }
 
+  .features{
+    top: 25vh;
+    margin-bottom: 35vh;
+  }
+
   .features-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mobile-img {
-    display: none;
-  }
-
-  .desktop-img {
-    display: flex;
-    width: 100%;
-    border-radius: 0.75rem;
   }
 }
 
@@ -1304,10 +1303,10 @@ footer {
   cursor: pointer;
   z-index: 101;
 }
-
+/*
 .wait-for-load {
-  /*animation: come-in 1s ease 10s;*/
-}
+  animation: come-in 1s ease 10s;
+}*/
 
 @keyframes search-load {
   from {
