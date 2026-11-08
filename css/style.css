@@ -217,6 +217,8 @@ header {
   width: 100%;
   padding: var(--body-padding);
   z-index: 1000;
+  transform: translateY(0);
+  transition: 0.3s transform;
 }
 
 nav {
@@ -237,7 +239,23 @@ nav {
   border-top: 0.07rem solid #ffffff7f;
   border-left: 0.07rem solid #ffffff46;
   box-shadow: 0.28rem 0.28rem 0.56rem #0000007a;
+  
   transition: 0.3s height;
+}
+
+@keyframes nav-appear {
+  0%{
+    transform: translateY(-10rem);
+  }
+
+  100%{
+    transform: translateY(0rem);
+  }
+}
+
+header.nav-hidden{
+  transform: translateY(-10rem);
+  transition: .3s;
 }
 
 nav.expanded {
@@ -682,7 +700,7 @@ main.expanded {
   );
   position: sticky;
   position: -webkit-sticky;
-  top: -50vh;
+  bottom: -90vh;
 }
 
 .welcome h1,
@@ -993,126 +1011,6 @@ footer {
   color: var(--placeholder-text);
 }
 
-/*Footer End*/
-
-@media (min-width: 840px) {
-  nav {
-    display: flex;
-    flex-direction: row !important;
-    width: 100% !important;
-    height: fit-content !important;
-    justify-content: space-between;
-    align-items: center !important;
-    padding: 1rem;
-  }
-
-  .logo-and-menu {
-    width: fit-content;
-  }
-
-  .nav-logo {
-    text-decoration: none;
-    color: var(--header-color);
-    width: fit-content;
-  }
-
-  .nav-logo span {
-    color: var(--accent-color);
-    font-size: 1.1rem;
-  }
-
-  .menu-btn {
-    display: none;
-  }
-
-  .nav-links-and-actions {
-    display: flex;
-    width: 100%;
-  }
-
-  .nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: center;
-    width: 100%;
-    list-style: none;
-    gap: clamp(2rem, 1.5rem + 1vw, 3.7rem);
-    visibility: visible;
-  }
-
-  .nav-links li {
-    cursor: pointer;
-    position: relative;
-    width: max-content;
-    height: max-content;
-  }
-
-  .nav-links li::after,
-  .nav-links li::before {
-    content: "";
-    position: absolute;
-    bottom: -0.2rem;
-    left: 50%;
-    height: 0.2rem;
-    width: 0;
-    border-radius: 0.1rem;
-    background: var(--accent-color);
-    transition: 0.3s;
-  }
-
-  .nav-links li::after {
-    box-shadow: 0 0 0.5rem var(--accent-color);
-  }
-
-  .nav-links li:hover::after {
-    background: var(--accent-color);
-    width: 100%;
-    left: 0;
-  }
-
-  .nav-actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end !important;
-    width: fit-content !important;
-    gap: 1rem;
-    visibility: visible;
-  }
-
-  .nav-actions a {
-    text-decoration: none;
-    border-radius: 0.25rem;
-    padding: 0.2rem 0.6rem;
-    transition: 0.3s all;
-    width: max-content;
-    height: max-content;
-    position: relative;
-  }
-  .nav-actions a::after {
-    content: "";
-    position: absolute;
-    width: calc(100%);
-    height: calc(100%);
-    left: 0;
-    top: 0;
-    z-index: -1;
-    border-radius: 0.3rem;
-    transition: 0.3s;
-  }
-
-  .features{
-    top: 25vh;
-    margin-bottom: 35vh;
-  }
-
-  .features-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/*Responsiveness Media Query End*/
-
 /*Second section start*/
 
 .player-search{
@@ -1402,6 +1300,361 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
   gap: clamp(1.5rem, 1rem + 3vw, 2.6rem);
+  justify-content: center;
+  /*animation: cards-load 12s ease-out;*/
+  animation-fill-mode: forwards;
+  width: 100%;
+}
+
+.player-card1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0000002b;
+  backdrop-filter: blur(5px);
+  border-radius: 0.9rem;
+  border-top: 0.07rem solid #ffffff77;
+  border-left: 0.07rem solid #ffffff77;
+  box-shadow: 0.41rem 0.41rem 0.31rem #0000003d;
+  cursor: pointer;
+  transition: 0.3s;
+  height: fit-content;
+  width: fit-content;
+}
+
+.player-card1:hover {
+  scale: 1.005;
+  background: #1c1c1c3f;
+  transform: translateY(1rem);
+}
+
+.player-card1:hover .player-img-and-name {
+  scale: 1.01;
+  transform:translateY(-0.2rem);
+}
+
+.player-card1:hover img {
+  border-radius: 0.9rem;
+}
+
+.player-card1:hover .player-name-wrapper {
+  border-radius: 0 0 0.9rem 0.9rem;
+}
+
+.player-img-and-name {
+  display: grid;
+  place-items: end;
+  transition: 0.3s;
+  width: 0;
+  min-width: 100%;
+  height: auto;
+}
+
+.player-img-and-name img {
+  object-fit: cover;
+  display: block;
+  color: var(--header-color);
+  width: 0;
+  min-width: 100%;
+  height: auto;
+  opacity: 1;
+  border-radius: 0.9rem 0.9rem 0 0;
+  transition: 0.3s;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.player-name-wrapper {
+  background: #000000af;
+  height: fit-content;
+  width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.player-name {
+  font-family: "Audiowide", sans-serif;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--header-color);
+}
+
+@supports (-webkit-background-clip: text) {
+  .player-name {
+    color: transparent;
+    background: radial-gradient(
+      farthest-side at 0.5rem 0rem,
+      var(--header-color) 50%,
+      #9d9d9d
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+.player-details {
+  font-family: Audiowide;
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  gap: calc(clamp(0.9rem, 0.7rem + 1vw, 1.2rem) * 0.5);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  position: relative;
+}
+
+.player-details span,
+.player-details ul {
+  font-family: "Space Grotesk";
+  font-size: clamp(0.8rem, 7cqi, 0.95rem);
+  font-weight: 500;
+}
+
+.player-details span {
+  width: fit-content;
+  height: fit-content;
+}
+
+.player-details .title {
+  font-weight: 600;
+  font-size: calc(clamp(0.8rem, 7cqi, 0.95rem) * 1.02);
+}
+
+.player-details .skill-lvl {
+  color: #40e0d0;
+  background: #40e0d060;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100rem;
+  position: relative;
+}
+
+.player-details .skill-lvl::before {
+  content: "Skill Level";
+  position: absolute;
+  color: #40e0d0;
+  background: #40e0d060;
+  border: 0.15rem solid #40e0d0;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100rem;
+  width: max-content;
+  top: 0;
+  left: -50%;
+  scale: 0;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.player-details .skill-lvl:hover::before {
+  top: -2rem;
+  left: -50%;
+  scale: 1;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.player-details .play-style {
+  color: #ff6666;
+  background: #ff666660;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100rem;
+  position: relative;
+}
+
+.player-details .play-style::before {
+  content: "Play Style";
+  position: absolute;
+  color: #ff6666;
+  background: #ff666660;
+  border: 0.15rem solid #ff6666;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100rem;
+  width: max-content;
+  top: 0;
+  left: 0;
+  scale: 0;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.player-details .play-style:hover::before {
+  top: -0.15rem;
+  left: 5.5rem;
+  scale: 1;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.player-details .games {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  position: relative;
+  transition: 0.3s;
+}
+
+.player-details .games::before {
+  content: "Games";
+  position: absolute;
+  color: #7cb2e8;
+  background: #7cb2e860;
+  border: 0.15rem solid #7cb2e8;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100rem;
+  width: calc(100% - 1rem);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  scale: 0;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.player-details .games:hover::before {
+  bottom: -2rem;
+  left: 0;
+  opacity: 1;
+  scale: 1;
+}
+
+.player-details .games li {
+  color: #7cb2e8;
+  background: #7cb2e860;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100rem;
+  display: inline;
+  width: fit-content;
+  height: fit-content;
+}
+
+
+
+/*Responsiveness Media Query Start*/
+
+@media (min-width: 840px) {
+  nav {
+    display: flex;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: fit-content !important;
+    justify-content: space-between;
+    align-items: center !important;
+    padding: 1rem;
+  }
+
+  .logo-and-menu {
+    width: fit-content;
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    color: var(--header-color);
+    width: fit-content;
+  }
+
+  .nav-logo span {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .nav-links-and-actions {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+    gap: clamp(2rem, 1.5rem + 1vw, 3.7rem);
+    visibility: visible;
+  }
+
+  .nav-links li {
+    cursor: pointer;
+    position: relative;
+    width: max-content;
+    height: max-content;
+  }
+
+  .nav-links li::after,
+  .nav-links li::before {
+    content: "";
+    position: absolute;
+    bottom: -0.2rem;
+    left: 50%;
+    height: 0.2rem;
+    width: 0;
+    border-radius: 0.1rem;
+    background: var(--accent-color);
+    transition: 0.3s;
+  }
+
+  .nav-links li::after {
+    box-shadow: 0 0 0.5rem var(--accent-color);
+  }
+
+  .nav-links li:hover::after {
+    background: var(--accent-color);
+    width: 100%;
+    left: 0;
+  }
+
+  .nav-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end !important;
+    width: fit-content !important;
+    gap: 1rem;
+    visibility: visible;
+  }
+
+  .nav-actions a {
+    text-decoration: none;
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.6rem;
+    transition: 0.3s all;
+    width: max-content;
+    height: max-content;
+    position: relative;
+  }
+  .nav-actions a::after {
+    content: "";
+    position: absolute;
+    width: calc(100%);
+    height: calc(100%);
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: 0.3rem;
+    transition: 0.3s;
+  }
+
+  .features{
+    top: 25vh;
+    margin-bottom: 35vh;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .player-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 2.6rem);
   /*animation: cards-load 12s ease-out;*/
   animation-fill-mode: forwards;
   width: 100%;
@@ -1629,6 +1882,10 @@ footer {
   width: fit-content;
   height: fit-content;
 }
+
+}
+
+/*Responsiveness Media Query End*/
 
 .hidden {
   display: none;

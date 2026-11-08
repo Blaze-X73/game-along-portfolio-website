@@ -5,6 +5,7 @@ const navActions = document.querySelector(".nav-actions");
 const header = document.querySelector("header");
 const body = document.querySelector("body");
 const main = document.querySelector("main");
+const welcome = document.querySelector("#main-section");
 
 const mediaQuery = window.matchMedia("(min-width: 760px)");
 
@@ -46,7 +47,16 @@ mediaQuery.addEventListener("change", function (event) {
   }
 });
 
+//Enable hidden nav bar
+{
+  let lastScrollY = window.scrollY;
 
-const welcome = document.querySelector("#welcome-section");
-welcome instanceof HTMLElement(welcome);
-welcome.style.height += `style="calc(${navHeight}px + clamp(1.3rem, 1rem + 2vw, 2.6rem))"`;`${navHeight}`
+  window.addEventListener("scroll", () => {
+    if (lastScrollY < window.scrollY) {
+      header.classList.add("nav-hidden");
+    } else {
+      header.classList.remove("nav-hidden");
+    }
+    lastScrollY = window.scrollY;
+  });
+}
