@@ -64,16 +64,17 @@ const contact = document.querySelector("#contact-link");
 
 home.addEventListener("click", () => {
   collapseSideBar();
-})
+});
 findPlayers.addEventListener("click", () => {
   collapseSideBar();
-})
+});
 about.addEventListener("click", () => {
   collapseSideBar();
-})
+});
 contact.addEventListener("click", () => {
   collapseSideBar();
-})
+  contactWrapper.classList.add("open");
+});
 
 //Enable hidden nav bar
 {
