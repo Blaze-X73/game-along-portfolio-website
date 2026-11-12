@@ -27,6 +27,12 @@
   </head>
   <body>
 
+    <!--Disclaimer-->
+
+    <div class="disclaimer">
+      <h2>The multiplayer features of this website are not functional. This is merely a static website</h2>
+    </div>
+
     <!--Background Container-->
     <div class="blob-bg-container">
       <div class="blob-blur-layer">
@@ -52,13 +58,34 @@
       </defs>
     </svg>
 
+    <!--Contact Form-->
+    <div class="contact-wrapper">
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact" id="contact">
+            <span class="material-symbols-outlined" id="close-contact"> close </span>
+
+            <h3>Send Feedback!</h3>
+            <input type="hidden" name="access_key" value="5c31ae85-5e16-4d18-ba84-470946d0e864">
+            <input type="text" name="name" placeholder="Your Name" class="contact-input" required id="name">
+            <input type="email" name="email" placeholder="Your Email" class="contact-input" required id="email">
+            <textarea
+              name="message"
+              id="message"
+              rows="5"
+              placeholder="Type anything you want to tell us"
+              class="contact-input"
+              required
+            ></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          </div>
+
     <header>
       <!--Base site start-->
       <nav class="nav-bar">
         <div class="logo-and-menu">
-          <a href="#" class="nav-logo">
+          <span class="nav-logo">
             <span class="white">Game</span><span class="red">Along</span>
-          </a>
+          </span>
           <div class="menu-btn">
             <span></span>
             <span></span>
@@ -68,24 +95,24 @@
 
         <div class="nav-links-and-actions">
           <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Find Players</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">About</a></li>
+            <li id="home"><a href="#welcome-section">Home</a></li>
+            <li id="find-players"><a href="#square-section">Find Players</a></li>
+            <li id="about-link"><a href="#about">About</a></li>
           </ul>
 
           <div class="nav-actions">
-            <a href="#" class="login-btn">Log In</a>
-            <a href="#" class="signup-btn">Sign Up</a>
+            <a href="#footer" class="login-btn" id="contact-link">Contact Us</a>
           </div>
         </div>
       </nav>
     </header>
 
     <main class="">
+
       <section class="welcome" id="welcome-section">
         <h1>Multiplayer at its <span>Finest</span></h1>
       </section>
+
       <section class="features">
         <ol class="features-list">
           <li class="square-item" id="square-card">
@@ -125,6 +152,7 @@
           </li>
         </ol>
       </section>
+
       <!--PLAYER SEARCH SECTION-->
       <section class="player-search" id="square-section">
         <section class="top-bar">
@@ -304,39 +332,46 @@
           </div>
         </section>
       </section>
+
+      <section class="about" id="about">
+        <h2>About <span class="nav-logo">
+              <span class="white">Game</span><span class="red">Along</span>
+        </span>
+      </h2>
+
+      <section class="about-content">
+        <article>
+          GameAlong is a static concept-website where gamers will be able to find people who play the same game as them.
+        </article>
+
+        <img src="./images/lonely-gamer-mobile.webp" alt="">
+        
+      </section>
+      </section>
+
     </main>
 
     <footer>
-      <div class="footer">
+      <div class="footer" id="footer">
         <section class="footer-top">
           <section class="logo-and-links">
-            <a href="#" class="nav-logo">
+            <span class="nav-logo">
               <span class="white">Game</span><span class="red">Along</span>
-            </a>
+            </span>
             <div class="footer-links-wrapper">
               <ul class="footer-links">
-                <h3>Useful Links</h3>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Find Players</a></li>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Sign Up</a></li>
-              </ul>
+            <li id="home"><a href="#welcome-section">Home</a></li>
+            <li id="find-players"><a href="#square-section">Find Players</a></li>
+            <li id="about-link"><a href="#about">About</a></li>
+          </ul>
             </div>
           </section>
 
-          <section class="suggestions">
-            <h3>Have any suggestions?</h3>
-            <textarea
-              name="message"
-              id="message"
-              rows="5"
-              placeholder="Type anything you want to tell us"
-            ></textarea>
-          </section>
+          
+          <button class="contact-btn">Contact Us!</button>
 
-          <section class="contact-platforms"></section>
+          
+
         </section>
       </div>
     </footer>

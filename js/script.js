@@ -17,6 +17,16 @@ const triangleCard = document.querySelector("#triangle-card");
 const circleCard = document.querySelector("#circle-card");
 const crossCard = document.querySelector("#cross-card");
 
+function collapseSideBar() {
+  menuBtn.classList.remove("active");
+    navBar.classList.remove("expanded");
+    navLinks.classList.remove("expanded");
+    navActions.classList.remove("expanded");
+    header.classList.remove("expanded");
+    main.classList.remove("expanded");
+    body.classList.remove("expanded");
+}
+
 menuBtn.addEventListener("click", () => {
   if (!navBar.classList.contains("expanded")) {
     const navHeight = navBar.getBoundingClientRect().height;
@@ -47,6 +57,24 @@ mediaQuery.addEventListener("change", function (event) {
   }
 });
 
+const home = document.querySelector("#home");
+const findPlayers = document.querySelector("#find-players");
+const about = document.querySelector("#about-link");
+const contact = document.querySelector("#contact-link");
+
+home.addEventListener("click", () => {
+  collapseSideBar();
+})
+findPlayers.addEventListener("click", () => {
+  collapseSideBar();
+})
+about.addEventListener("click", () => {
+  collapseSideBar();
+})
+contact.addEventListener("click", () => {
+  collapseSideBar();
+})
+
 //Enable hidden nav bar
 {
   let lastScrollY = window.scrollY;
@@ -60,3 +88,15 @@ mediaQuery.addEventListener("change", function (event) {
     lastScrollY = window.scrollY;
   });
 }
+
+const contactBtn = document.querySelector(".contact-btn");
+const contactWrapper = document.querySelector(".contact-wrapper");
+const closeContactButton = document.querySelector("#close-contact");
+
+contactBtn.addEventListener("click", () => {
+  contactWrapper.classList.add("open");
+});
+
+closeContactButton.addEventListener("click", () => {
+  contactWrapper.classList.remove("open");
+});
