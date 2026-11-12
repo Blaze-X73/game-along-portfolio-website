@@ -1,11 +1,13 @@
 # GameAlong
 
-A gaming teammate finder that helps players discover people to play with based on their games, platforms, play styles, and communication preferences.
+A frontend static concept on a gaming teammate finder that helps players discover people to play with based on their games, platforms, play styles, and communication preferences.
 
 
 ## Features
 
-Coming soon.
+- Responsive Design
+- Player List (Static for now)
+- Contact Form
 
 ## Technologies
 
@@ -15,12 +17,15 @@ Coming soon.
 
 ## Live Demo
 
-Coming soon.
+https://blaze-x73.github.io/game-along-portfolio-website/
 
 ## Screenshots
 
-Coming soon.
+![Mobile screenshot](images/screenshots/mobile-screenshot.jpg)
+
+![Desktop screenshot](images/screenshots/desktop-screenshot.jpg)
 
 ## What I Learned
-
+- How to create working forms with web3forms
+- CSS Clip-path
 
