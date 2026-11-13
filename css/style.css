@@ -1815,11 +1815,6 @@ footer {
     transition: 0.3s;
   }
 
-  .features {
-    top: 0;
-    margin-bottom: 0;
-  }
-
   .features-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
