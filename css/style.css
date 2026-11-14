@@ -1538,6 +1538,36 @@ footer {
   height: fit-content;
 }
 
+.logo-and-links .logo-and-contacts{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.contact-links{
+  display: flex;
+  gap: 2rem;
+}
+
+.contact-links a{
+  text-decoration: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+#footer-contacts{
+  width: 2rem;
+  height: 2rem;
+  color: var(--header-color);
+  transition: .3s;
+}
+
+#footer-contacts:hover{
+  color: var(--text-color);
+  filter: drop-shadow(0 0 .2rem #f8fbfb95 );
+  scale: 1.2;
+}
+
 .footer-links-wrapper {
   display: flex;
   justify-content: center;
@@ -1557,6 +1587,7 @@ footer {
   color: var(--text-color);
   text-decoration: none;
   position: relative;
+  font-size: var(--p);
 }
 
 .footer-links li {
