@@ -42,7 +42,7 @@ html {
   --h1: clamp(3.2rem, 2rem + 5vw, 5rem);
   --h2: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 1.7);
   --h3: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 2.3);
-  --p: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 2.5);
+  --p: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 3.4);
 
   /*Padding*/
   --body-padding: clamp(1.3rem, 1rem + 2vw, 2.6rem);
@@ -50,7 +50,7 @@ html {
 
 /*Disclaimer*/
 .disclaimer {
-  display: flex;
+  display: none;
   background: var(--black);
   height: 100vh;
   align-items: center;
@@ -66,6 +66,7 @@ html {
   text-align: center;
   text-transform: uppercase;
   font-family: "Pixelify Sans";
+  animation: fade-in 1s ease forwards;
 }
 
 @keyframes disclaimer {
@@ -109,9 +110,9 @@ html {
 .blob-blur-layer {
   width: 100%;
   height: 100%;
-  filter: url(#goo-blur) blur(70px); /*Combines SVG and CSS blur*/
+  filter: url(#goo-blur) blur(90px); /*Combines SVG and CSS blur*/
   position: relative;
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 /*Base blob styling*/
@@ -812,6 +813,10 @@ main {
 .features-list .square-item {
   border: 0.1rem solid var(--header-color);
   box-shadow: 0 0.5rem 0 var(--header-color);
+  cursor: pointer;
+}
+
+.features-list .square-item a{
   cursor: pointer;
 }
 
@@ -1637,10 +1642,11 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: space-around;
+  height: fit-content;
   padding: 2rem;
-  width: clamp(25rem, 20rem + 15vw, 35rem);
+  gap: clamp(1.8rem, 0.9rem + 4vw, 3rem);
+  width: clamp(20rem, 15rem + 15vw, 30rem);
   background: #10101066;
   border-top: 0.07rem solid #ffffff66;
   border-left: 0.07rem solid #ffffff4d;
@@ -1691,7 +1697,9 @@ footer {
   border: none;
   border-radius: 0.4rem;
   width: 100%;
-  height: 2.5rem;
+  min-height: 2.5rem;
+  max-height: 3.5rem;
+  flex: 1;
   padding: 0.5rem;
   background: #78787814;
   border-top: 0.07rem solid #ffffff66;
@@ -1704,6 +1712,8 @@ footer {
 }
 
 .contact textarea {
+  max-height: 5rem;
+  flex: .5;
   height: 5rem;
   resize: none;
   transition: 0.3s;
