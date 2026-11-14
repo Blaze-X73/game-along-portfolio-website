@@ -42,7 +42,7 @@ html {
   --h1: clamp(3.2rem, 2rem + 5vw, 5rem);
   --h2: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 1.7);
   --h3: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 2.3);
-  --p: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 3.4);
+  --p: calc(clamp(3.2rem, 2rem + 5vw, 5rem) / 3);
 
   /*Padding*/
   --body-padding: clamp(1.3rem, 1rem + 2vw, 2.6rem);
@@ -54,7 +54,7 @@ html {
   background: var(--black);
   height: 100vh;
   align-items: center;
-  animation: disclaimer 2s ease 8s forwards;
+  animation: disclaimer 2s ease 5s forwards;
   position: fixed;
   top: 0;
   left: 0;
@@ -66,7 +66,8 @@ html {
   text-align: center;
   text-transform: uppercase;
   font-family: "Pixelify Sans";
-  animation: fade-in 1s ease forwards;
+  opacity: 0;
+  animation: fade-in 1s ease forwards .5s;
 }
 
 @keyframes disclaimer {
@@ -539,7 +540,7 @@ nav.expanded .logo-and-menu {
   display: flex;
   flex-direction: column;
   list-style: none;
-  gap: clamp(2rem, 1.8rem + 1vh, 4.5rem);
+  gap: clamp(3rem, 2.8rem + 1vh, 4.5rem);
   width: 100%;
   transition: 0.3s;
 }
@@ -564,6 +565,10 @@ nav.expanded .logo-and-menu {
   height: max-content;
   padding: 0.5rem 0;
   animation: blink 0.4s ease-in-out;
+}
+
+.nav-links.expanded li a{
+  font-size: var(--h2);
 }
 
 .nav-links li::after {
@@ -601,6 +606,7 @@ nav.expanded .logo-and-menu {
 .nav-links li a {
   text-decoration: none;
   color: var(--header-color);
+  font-size: var(--p);
 }
 
 .nav-actions {
@@ -608,6 +614,7 @@ nav.expanded .logo-and-menu {
   justify-content: space-between;
   width: 100%;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 @keyframes slide-in-l {
@@ -634,15 +641,13 @@ nav.expanded .logo-and-menu {
 
 .nav-actions.expanded {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100%;
   transition: 0.3s;
-  gap: clamp(2rem, 1.8rem + 1vh, 4.5rem);
+  padding-top: clamp(3rem, 2.8rem + 1vh, 4.5rem);
 }
-
 .nav-actions.expanded a {
   padding: 0.6rem 1.8rem;
+  font-size: var(--h2);
 }
 
 .nav-actions.expanded a:first-child {
@@ -660,6 +665,7 @@ nav.expanded .logo-and-menu {
 .nav-actions a {
   text-decoration: none;
   color: var(--header-color);
+  font-size: var(--p);
   border: 0.2rem solid var(--accent-color);
   border-radius: 0.5rem;
   box-shadow: 0.28rem 0.28rem 0.56rem #00000096;
@@ -1546,7 +1552,7 @@ footer {
 
 .contact-links{
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .contact-links a{
@@ -1556,14 +1562,14 @@ footer {
 }
 
 #footer-contacts{
-  width: 2rem;
-  height: 2rem;
+  width: 1.67rem;
+  height: 1.67rem;
   color: var(--header-color);
   transition: .3s;
 }
 
 #footer-contacts:hover{
-  color: var(--text-color);
+  color: var(--header-color);
   filter: drop-shadow(0 0 .2rem #f8fbfb95 );
   scale: 1.2;
 }
@@ -1684,6 +1690,10 @@ footer {
   border-radius: 1rem;
   box-shadow: 0.21rem 0.21rem 0.21rem #00000060;
   position: relative;
+}
+
+.contact h3{
+  font-family: "Pixelify Sans";
 }
 
 .contact span {
